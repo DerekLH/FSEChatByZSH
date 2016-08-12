@@ -6,35 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<style type="text/css">
-	  img
+	  div.panel
 	  {
-		padding-top:25%;
+		margin:3% 5% 3% 5%;
 	  }
-	  body
+	  div.panel-heading
 	  {
-		background-color:black;
-		margin:0;
-		padding:0;
+		padding:3%;
 	  }
-	  div.holdPlace
+	  div.panel-body
 	  {
-		width:100%;
-		padding:15%;
+		padding:3%;
 	  }
-	  div.form-group
+	  div.time
 	  {
-		padding:15%;
+	    float:right;
+	  }
+	  div.bottom-sendMessage
+	  {
+		
+	  }
+	  div.line
+	  {
+		letter-spacing:0;
+		color:#ddd;
 	  }
 	</style>
   </head>
   <body>
-    <div class="container">
-      <img src="img/FSE.png" class="img-responsive center-block" alt="Logo">
-	  <div class="holdPlace">
+    <div class="container-fluid">
+	
+	  <div id="userMessage" class=>
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+			Test Head <div class="time">01.01.2015 9:30AM</div>
+		  </div>
+		  <div class="panel-body">
+			Test Body
+		  </div>
+		</div>
 	  </div>
-	  <div class="form-group">
-		<input type="text" class="form-control" id="name" placeholder="Enter Your Name Please">
+	  
+	  <div id="sendMessage" class="bottom-sendMessage">
+		<div class="line">
+		</div>
 	  </div>
+	  
 	</div>
 	<script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
