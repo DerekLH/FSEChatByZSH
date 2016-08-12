@@ -6,6 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<style type="text/css">
+	  body,html
+	  {
+		height:100%;
+		margin:0px;
+	  }
+	  div.container-fluid
+	  {
+		margin-top:0px;
+		margin-bottom:0px;
+		height:100%;
+	  }
+	  div.up-userMessage
+	  {
+		height:80%;
+	  }
 	  div.panel
 	  {
 		margin:3% 5% 3% 5%;
@@ -24,19 +39,22 @@
 	  }
 	  div.bottom-sendMessage
 	  {
+		padding-left:5%;
+		padding-right:5%;
+		height:10%;
+	  }
+	  input.form-control
+	  {
 		
 	  }
-	  div.line
-	  {
-		letter-spacing:0;
-		color:#ddd;
-	  }
+	  
+	  
 	</style>
   </head>
   <body>
     <div class="container-fluid">
 	
-	  <div id="userMessage" class=>
+	  <div id="userMessage" class="up-userMessage">
 		<div class="panel panel-info">
 		  <div class="panel-heading">
 			Test Head <div class="time">01.01.2015 9:30AM</div>
@@ -47,8 +65,22 @@
 		</div>
 	  </div>
 	  
+	  <form class="form-inline">
+
+	  
 	  <div id="sendMessage" class="bottom-sendMessage">
-		<div class="line">
+		<hr/>
+		<div class="row">
+		 <div class="col-xs-12">
+            <div class="input-group" style="width:100%;"  >
+               <input type="text" class="form-control" style="auto;">
+               <span class="input-group-btn">
+                  <button class="btn btn-default" type="button">
+                     Go!
+                  </button>
+               </span>
+            </div><!-- /input-group -->
+         </div><!-- /.col-lg-6 -->
 		</div>
 	  </div>
 	  
