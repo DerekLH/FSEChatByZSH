@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Log In At FSE Chatroom</title>
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	  img
+	  {
+		padding-top:25%;
+	  }
+	  body
+	  {
+		background-color:black;
+		margin:0;
+		padding:0;
+	  }
+	  div.holdPlace
+	  {
+		width:100%;
+		padding:12%;
+	  }
+	  div.form-group
+	  {
+		padding:15%;
+	  }
+	  button.btn btn-default
+	  {
+	  	width:100%;
+	  }
+
+	</style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/FSE.png" class="img-responsive center-block" alt="Logo">
+	  <div class="holdPlace">
+	  </div>
+	  <div class="form-group">
+		<input type="text" class="form-control" id="name" placeholder="Enter Your Name Please">
+		<button  onclick="jumpToChatRoom()" class="form-control" id="submit">Click to Chat!</button>
+	  </div>
+	  </div>
+	</div>
+	<script>
+		function jumpToChatRoom()
+		{
+			var getName = $("#name").val();
+			var chatRoomURL = '	chatRoomPage?name='+getName;
+			window.location.href=chatRoomURL;
+		}
+	</script>
+	<script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+  </body>
+</html>

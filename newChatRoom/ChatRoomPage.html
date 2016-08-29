@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	  body,html
+	  {
+		height:100%;
+		margin:0px;
+	  }
+	  div.container-fluid
+	  {
+		margin-top:0px;
+		margin-bottom:0px;
+		height:100%;
+	  }
+	  div.up-userMessage
+	  {
+		height:80%;
+		overflow-y: scroll;
+	  }
+	  div.panel
+	  {
+		margin:3% 5% 3% 5%;
+	  }
+	  div.panel-heading
+	  {
+		padding:3%;
+	  }
+	  div.panel-body
+	  {
+		padding:3%;
+	  }
+	  div.time
+	  {
+	    float:right;
+	  }
+	  div.bottom-sendMessage
+	  {
+		padding-left:5%;
+		padding-right:5%;
+		height:10%;
+	  }
+	  #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+	  
+	  
+	</style>
+  </head>
+  <body>
+    <div class="container-fluid">
+	
+	  <div class="up-userMessage">
+		<ul id = messages>
+		
+		</ul>
+		<!--
+		<div class="panel panel-info">
+		  <div class="panel-heading">
+			Test Head <div class="time">01.01.2015 9:30AM</div>
+		  </div>
+		  <div class="panel-body">
+			Test Body
+		  </div>
+		</div>
+		-->
+	  </div>
+	  
+	 
+
+	  
+	  <div id="sendMessage" class="bottom-sendMessage">
+		<hr/>
+		<div class="row">
+		 <div class="col-xs-12">
+            <div class="input-group" style="width:100%;">
+               <input type="text" id="msg" class="form-control" style="auto;">
+               <span class="input-group-btn">
+                  <button class="btn btn-default" type="button" onclick="sendOnce()" id="sendMsg">
+                     Send
+                  </button>
+               </span>
+            </div>
+         </div>
+		</div>
+	  </div>
+	  
+	</div>
+	<script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/js/bootstrap.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+
+		$.getUrlParam = function (name) {  
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");  
+                var r = window.location.search.substr(1).match(reg);  
+                if (r != null) return unescape(r[2]); return null;  
+            }  
+
+		var socket = io();
+		var name = $.getUrlParam('name');
+		function sendOnce(){
+			
+			var msg = $('#msg').val();
+			var mydate = new Date();
+			var inputDate = mydate.toLocaleString();
+			var totalMsg = name +'('+inputDate+')'+' : '+ msg;
+			socket.emit('chat message', totalMsg);
+			$('#msg').val('');
+		}
+		
+		$("#msg").keydown(function(e){
+ 	   　if(e.keyCode == 13)
+        {
+ 	       sendOnce();
+        }
+	  	});
+		socket.on('chat message', function(msg){
+   		      $('#messages').append($('<li>').text(msg));
+	    });
+  		
+  	</script>
+	
+  </body>
+</html>
