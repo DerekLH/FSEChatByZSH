@@ -26,6 +26,11 @@
 	  {
 		padding:15%;
 	  }
+	  button.btn btn-default
+	  {
+	  	width:100%;
+	  }
+
 	</style>
   </head>
   <body>
@@ -35,8 +40,18 @@
 	  </div>
 	  <div class="form-group">
 		<input type="text" class="form-control" id="name" placeholder="Enter Your Name Please">
+		<button  onclick="jumpToChatRoom()" class="form-control" id="submit">Click to Chat!</button>
+	  </div>
 	  </div>
 	</div>
+	<script>
+		function jumpToChatRoom()
+		{
+			var getName = $("#name").val();
+			var chatRoomURL = '	chatRoomPage?name='+getName;
+			window.location.href=chatRoomURL;
+		}
+	</script>
 	<script src="javascripts/jquery.min.js"></script>
     <script src="javascripts/bootstrap.min.js"></script>
   </body>
